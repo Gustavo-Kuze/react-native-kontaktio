@@ -1,10 +1,6 @@
 #import "KontaktBeacons.h"
 
-#if __has_include("RCTConvert.h")
-  #import "RCTConvert.h"
-#else
-  #import <React/RCTConvert.h>
-#endif
+#import <React/RCTConvert.h>
 
 #import <KontaktSDK/KontaktSDK.h>
 
