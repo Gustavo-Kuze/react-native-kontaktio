@@ -20,7 +20,7 @@ def safeExtGet(prop, fallback) {
 }
 
 buildscript {
-
+    
     // The Android Gradle plugin is only required when opening the android folder stand-alone.
     // This avoids unnecessary downloads and potential conflicts when the library is included as a
     // module dependency in an application project.
@@ -32,7 +32,7 @@ buildscript {
         }
         dependencies {
             classpath 'com.android.tools.build:gradle:3.4.1'
-
+            
         }
     }
 }
@@ -74,6 +74,8 @@ repositories {
 dependencies {
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'  // From node_modules
+    
+    implementation 'com.google.code.gson:gson:2.8.9'
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
     implementation 'androidx.preference:preference:1.1.1'
@@ -85,28 +87,26 @@ dependencies {
 }
 
 def configureReactNativePom(def pom) {
-    def packageJson = new groovy.json.JsonSlurper().parseText(file('../package.json').text)
-
     pom.project {
-        name packageJson.title
-        artifactId packageJson.name
-        version = packageJson.version
+        name "kontaktio"
+        artifactId "kontaktio"
+        version = "1.0.0"
         group = "com.artirigo.kontaktio"
-        description packageJson.description
-        url packageJson.repository.baseUrl
+        description ""
+        url ""
 
         licenses {
             license {
-                name packageJson.license
-                url packageJson.repository.baseUrl + '/blob/master/' + packageJson.licenseFilename
+                name ""
+                url ""
                 distribution 'repo'
             }
         }
 
         developers {
             developer {
-                id packageJson.author.username
-                name packageJson.author.name
+                id "kontaktio"
+                name "kontaktio"
             }
         }
     }
